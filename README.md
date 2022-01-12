@@ -36,14 +36,15 @@ npm install pixi.js @inlet/react-pixi
 ```
 
 ```jsx
-import { Stage, Container, Sprite } from '@inlet/react-pixi'
+import { Stage, Container, Sprite, Text } from '@inlet/react-pixi'
+import * as PIXI from 'pixi.js'
 
 export const MyComponent = () => (
-  <Stage>
+  <Stage options={{ backgroundColor: 0xeef1f5 }}>
     <Sprite image="./my-image.png" x={100} y={100} />
 
     <Container x={500}>
-      <Text text="Hello World" filter={[blurFilter]} />
+      <Text text="Hello World" filters={[new PIXI.filters.BlurFilter(5.0)]} />
     </Container>
   </Stage>
 )
